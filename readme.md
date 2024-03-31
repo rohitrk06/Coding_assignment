@@ -12,7 +12,7 @@ According to the problem statement, data need to be merged from two different so
 Shape of data after merging 2016 flight data with 2016 weather data:
 Shape looks like this:
 ```
-(5617658, 29)
+(5617658, 44)
 ```
 Snapshot of the data looks like this:
 ![alt text](image.png)
