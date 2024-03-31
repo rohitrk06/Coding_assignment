@@ -47,13 +47,13 @@ def get_weather_data(year,month):
 if not os.path.exists("flight_data_processed"):
         os.makedirs("flight_data_processed")
 
-final_data = pd.DataFrame()
 
 files = os.listdir(r"data")
 
 required_columns = ["FlightDate","Quarter","Year","Month","DayofMonth","DepTime","DepDel15","CRSDepTime","DepDelayMinutes","Origin","Dest","ArrTime","CRSArrTime","ArrDel15","ArrDelayMinutes"]
 
 for file in files:
+    final_data = pd.DataFrame()
     if file != 'weather':
         file_path = os.path.join(r"data", file)
         data_folders = os.listdir(file_path)
@@ -80,8 +80,9 @@ for file in files:
                         print(f'Error reading {data_file} : {e}')
 
 
-final_data.to_csv('flight_data.csv', index=False)                   
-print(final_data.shape)
+    final_data.to_csv(f'flight_data_{file}.csv', index=False)                   
+    print(f"Shape of flight data in {file}",final_data.shape)
+    print(f"Head of flight data in {file}" ,final_data.head())
 
 
 
